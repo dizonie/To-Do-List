@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosmic Task Lister</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Gochi+Hand&display=swap" rel="stylesheet" />
+</head>
+<body>
+ 
+  <div class="space-background" id="spaceBackground"></div>
+  
+  <div class="container">
+    <div class="heading">
+      <img class="heading-img" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGR1bmpheGJqNHExNDBoeTZiZzI2OHB6MDgyYzU1bzZnM240Ymw1cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z9bmnMFw0PM6MnxVfp/giphy.gif" alt="Alien GIF" />
+      <h1 class="heading-title">🛸 Cosmic Task Lister</h1>
+    </div>
+
+    <form class="form" id="taskForm">
+      <label class="form-label" for="title">Mission Name:</label>
+      <input class="form-input" type="text" id="title" placeholder="e.g., Defeat Monday blues" required />
+
+      <label class="form-label" for="description">Mission Briefing:</label>
+      <textarea class="form-input" id="description" placeholder="Optional: Enter extra cosmic info"></textarea>
+
+      <label class="form-label" for="priority">Danger Level:</label>
+      <select id="priority" class="form-input">
+        <option value="low">Low - 🪐 Meh</option>
+        <option value="medium" selected>Medium - 👽 Watch Out</option>
+        <option value="high">High - 🚨 Red Alert</option>
+      </select>
+
+      <button class="button" type="submit"><span>🚀 Beam It Up!</span></button>
+    </form>
+
+    <ul class="todolist" id="taskList"></ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

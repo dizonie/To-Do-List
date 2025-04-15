@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Gochi+Hand&display=swap');
+
+:root {
+    --light-bg-primary: #8a6cef;
+    --light-bg-secondary: #6495ed;
+    --dark-bg-primary: #0b0c1e;
+    --dark-bg-secondary: #000033;
+    --light-text: #3a3a3a;
+    --dark-text: #f0f8ff;
+    --light-card: rgba(255, 255, 255, 0.25);
+    --dark-card: rgba(20, 20, 50, 0.4);
+    --light-shadow: 0 0 20px rgba(111, 66, 193, 0.5);
+    --dark-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    --button-light: #7b68ee;
+    --button-dark: #00c2cb;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(120deg, var(--light-bg-primary), var(--light-bg-secondary));
+    color: var(--light-text);
+    transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+body.dark {
+    background: linear-gradient(120deg, var(--dark-bg-primary), var(--dark-bg-secondary));
+    color: var(--dark-text);
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--light-card);
+    border-radius: 20px;
+    box-shadow: var(--light-shadow);
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .container {
+    background-color: var(--dark-card);
+    box-shadow: var(--dark-shadow);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.heading-img {
+    width: 100px;
+}
+
+.heading-title {
+    font-size: 2rem;
+    background: rgba(123, 104, 238, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transform: rotate(-2deg);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+body.dark .heading-title {
+    background: rgba(0, 194, 203, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.form-label {
+    text-align: left;
+    margin: 1rem 0 0.2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'Gochi Hand', cursive;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+}
+
+body.dark .form-input {
+    background: rgba(40, 40, 60, 0.8);
+    color: #eee;
+}
+
+.button {
+    background: var(--button-light);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #5a49c9;
+    transition: all 0.3s ease;
+    transform: rotate(2deg);
+}
+
+body.dark .button {
+    background: var(--button-dark);
+    box-shadow: 0 4px 0 #00919a;
+    color: #000;
+}
+
+.button:hover {
+    transform: rotate(-2deg) scale(1.05);
+    filter: brightness(1.1);
+}
+
+.todolist {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+body.dark .todolist {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.todolist li {
+    background: rgba(255, 255, 255, 0.6);
+    color: #333;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 6px solid #7b68ee;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.todolist li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(123, 104, 238, 0.7);
+}
+
+.todolist li.high {
+    border-left-color: #ff4757;
+}
+
+.todolist li.medium {
+    border-left-color: #ffa502;
+}
+
+.todolist li.low {
+    border-left-color: #2ed573;
+}
+
+.dark .todolist li {
+    background: rgba(30, 30, 50, 0.7);
+    color: #eee;
+}
+
+.dark .todolist li.high {
+    border-left-color: #ff6b81;
+}
+
+.dark .todolist li.medium {
+    border-left-color: #ffb142;
+}
+
+.dark .todolist li.low {
+    border-left-color: #7bed9f;
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--button-light);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+}
+
+body.dark .toast {
+    background: var(--button-dark);
+    color: #000;
+}
+
+.toast.show {
+    display: block;
+    animation: fadein 0.5s ease, fadeout 0.5s ease 2.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to   { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+.toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.toggle-btn {
+    background: rgba(123, 104, 238, 0.2);
+    color: #333;
+    border: 2px solid #7b68ee;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Comic Neue', cursive;
+    transition: all 0.3s ease;
+}
+
+body.dark .toggle-btn {
+    background: rgba(0, 194, 203, 0.2);
+    color: #fff;
+    border: 2px solid #00c2cb;
+}
+
+.toggle-btn:hover {
+    background: var(--button-light);
+    color: #fff;
+}
+
+body.dark .toggle-btn:hover {
+    background: var(--button-dark);
+    color: #000;
+}
+
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    filter: blur(0.5px);
+    animation: twinkle var(--duration, 4s) infinite ease-in-out;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 0;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.star:hover {
+    animation-play-state: paused;
+    transform: scale(2) !important;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 1);
+    z-index: 1;
+}
+
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 30%, var(--planet-light), var(--planet-dark));
+    box-shadow: inset -8px -8px 20px rgba(0,0,0,0.5),
+                inset 8px 8px 20px rgba(255,255,255,0.2),
+                0 0 15px var(--planet-glow);
+    animation: orbit var(--orbit-duration, 60s) infinite linear;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.planet-ring {
+    position: absolute;
+    border-radius: 50%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--ring-color-1), var(--ring-color-2));
+    transform: rotateX(75deg);
+    opacity: 0.7;
+    box-shadow: 0 0 10px var(--ring-glow);
+}
+
+.planet:hover {
+    transform: scale(1.2) !important;
+    animation-play-state: paused;
+    z-index: 1;
+}
+
+@keyframes orbit {
+    0% { transform: translate(var(--orbit-x-start), var(--orbit-y-start)); }
+    25% { transform: translate(var(--orbit-x-end), var(--orbit-y-start)); }
+    50% { transform: translate(var(--orbit-x-end), var(--orbit-y-end)); }
+    75% { transform: translate(var(--orbit-x-start), var(--orbit-y-end)); }
+    100% { transform: translate(var(--orbit-x-start), var(--orbit-y-start)); }
+}
+
+.asteroid {
+    position: absolute;
+    background: radial-gradient(circle at 40% 40%, #888, #444);
+    border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
+    box-shadow: inset -4px -4px 8px rgba(0,0,0,0.8),
+                inset 4px 4px 8px rgba(255,255,255,0.3);
+    animation: float var(--float-duration, 15s) infinite linear;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.asteroid:hover {
+    transform: scale(1.5) rotate(30deg) !important;
+    animation-play-state: paused;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% { 
+        transform: translateX(-100vw) translateY(var(--float-y, 10vh)) rotate(0deg); 
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: translateX(100vw) translateY(var(--float-y, 10vh)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.star::after, .planet::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, var(--beam-color, rgba(255,255,255,0.7)), transparent);
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.star:hover::after, .planet:hover::after {
+    height: 100px;
+    opacity: 0.7;
+    animation: beam 2s infinite ease-in-out;
+}
+
+@keyframes beam {
+    0%, 100% { height: 50px; opacity: 0.4; }
+    50% { height: 150px; opacity: 0.7; }
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.edit-buttons .button {
+    flex: 1;
+    padding: 0.4rem;
+    font-size: 1rem;
+}
